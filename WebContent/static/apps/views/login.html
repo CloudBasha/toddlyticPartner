@@ -1,0 +1,57 @@
+<div class=" login">
+	<div class="logo">
+        <a href="#">
+            <img src="images/toddlyticWhiteLogo.png" class="loginLogo" alt="" /> </a>
+    </div>
+    <!-- END LOGO -->
+       <!-- BEGIN LOGIN -->
+       <div class="content">
+           <!-- BEGIN LOGIN FORM -->
+           <form name="newLoginForm" class="login-form" ng-submit="doLogin(newLoginForm.$valid)" novalidate>
+               <h3 class="form-title">Login to your account</h3>
+               <div class="alert alert-danger display-hide">
+                   <button class="close" data-close="alert"></button>
+                   <span> Enter any username and password. </span>
+               </div>
+               <div class="form-group">
+                   <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                   <label class="control-label visible-ie8 visible-ie9">Email</label>
+                   <div class="input-icon">
+                       <i class="fa fa-user"></i>
+                       <input name="loginEmail" class="form-control placeholder-no-fix" ng-model="loginObj.email" type="email" placeholder="Email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
+                        required/> </div>
+                       <div ng-messages="newLoginForm.loginEmail.$error" class="help-block noMargin" role="alert">
+					   		<div ng-message="pattern">This is an invalid email address</div>
+					   		<!-- <div ng-message="required">This is a required field*</div> -->
+					   </div>
+               </div>
+               <div class="form-group">
+                   <label class="control-label visible-ie8 visible-ie9">Password</label>
+                   <div class="input-icon">
+                       <i class="fa fa-lock"></i>
+                       <input name="loginPassword" class="form-control placeholder-no-fix" ng-model="loginObj.password" type="password" placeholder="Password" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/i' required/> </div>
+                       <div ng-messages="newLoginForm.loginPassword.$error" class="help-block noMargin" role="alert">
+					   		<div ng-message="pattern">Password does not match required criteria.</div>
+					   </div>
+               </div>
+               <div class="form-actions">
+                  <!--  <label class="rememberme mt-checkbox mt-checkbox-outline">
+                       <input type="checkbox" name="remember" value="1" /> Remember me
+                       <span></span>
+                   </label> -->
+               	   <button type="submit" class="btn green pull-right"> Login </button>
+               </div>
+               <div class="forget-password">
+                   <p>Forgot your password ?<br/>
+                   		<a ui-sref="requestResetPassword" class="createAccntLink" id="forget-password">Click here </a>
+                   </p>
+               </div>
+              <!--  <div class="create-account">
+                   <p> Don't have an account yet ?&nbsp;
+                       <a ui-sref="registrationSelection" class="createAccntLink" id="register-btn"> Create an account </a>
+                   </p>
+               </div> -->
+           </form>
+		<div class="copyright"> 2016 &copy; Cloud Basha Sdn Bhd. </div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+.staff_menu_add {
+	color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.staff_info_div {
+	display: block;
+}
+
+.staff_info_edit_div {
+	display: none;
+}
+
+.staff_profile_select input{
+	margin-top: 25px !important;
+}
+
+.staff_profile_select label{
+	top: -23px !important;
+}
+

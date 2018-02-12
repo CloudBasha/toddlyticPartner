@@ -1,0 +1,271 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="fa fa-building-o contentIcon"></i>
+			<span class="contentTitle">Partners</span>
+		</div>
+		<div class="col-sm-6 text-right">
+			<i class="fa fa-plus-circle actionIcon" data-toggle="tooltip" data-placement="bottom"
+				title="Invite Partner" ng-click="openModal('createPartnerModal')"></i>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" ng-if="displayTable">
+			<table class="table table-hover member_act striped infoTitle" datatable="ng"
+			           dt-instance="dtInstance"
+			           dt-options="dtReportOptions"
+			           dt-column-defs="dtColumnDefs">
+     			<tbody>
+	      			<tr class="clickable-row" ng-repeat="partner in partners">
+	        			<td ng-click="listPartners(partner)">{{ partner.name }}</td>
+			            <td ng-click="listPartners(partner)">{{ partner.noOfOrgs }}</td>
+			            <td ng-click="listPartners(partner)">{{ partner.noOfChildPartners }}</td>
+			            <td>
+			            	<!-- <a data-toggle="tooltip" data-placement="bottom" title="Enable/Disable Partner"><i class="fa fa-ban actionIcon pl-10"></i></a> -->
+			             	<a ng-click="openModal('createPartnerModal', partner);$event.stopPropagation();" data-toggle="tooltip" data-placement="bottom" title="Invite Org"><i class="fa fa-plus-circle actionIcon pl-10"></i></a>
+			             	<a ng-click="openModal('movePartnerModal', partner);$event.stopPropagation()" data-toggle="tooltip" data-placement="bottom" title="Move Partner"><i class="fa fa-arrow-right actionIcon pl-10"></i></a>
+						</td>
+	        		</tr>
+         		</tbody>
+         	</table>
+		</div>
+	</div>
+</div>
+
+<div id="addChildPartnerModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="childPartnerForm" ng-submit="createPartner(childPartnerForm.$valid)" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Add Child Partner</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Parent Partner</label> 
+								<select class="selectpicker col-sm-6 noPadding toddlyticSelect" disabled data-style=infoInput title="Choose Partner">
+							      <option value="" selected disabled>Little Human Scholars</option>
+							    </select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Child Partner</label> 
+								<select name="partner" class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style=infoInput title="Choose Partner" required>
+							      <option value="" disabled>Choose Partner</option>
+							      <option value="Male">Little Human Scholars 1</option>
+							      <option value="Male">Little Human Scholars 2</option>
+							      <option value="Male">Little Human Scholars 3</option>
+							    </select>
+							</div>
+							<div ng-messages="childPartnerForm.partner.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="createPartnerModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="newPartnerForm" ng-submit="createPartner(newPartnerForm.$valid)" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Invite Partner</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Full Name</label> 
+								<input name="fullName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="createPartnerObj.name" required />
+							</div>
+							<div ng-messages="newPartnerForm.fullName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Email</label> 
+								<input name="email" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="email" ng-model="createPartnerObj.email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required />
+							</div>
+							<div ng-messages="newPartnerForm.email.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid email address</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Mobile Phone</label> 
+								<input name="mobilePhone" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="createPartnerObj.mobileNumber" ng-pattern="/^[\d ()+-]+$/" required />
+							</div>
+							<div ng-messages="newPartnerForm.mobilePhone.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid telephone no</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Company Name</label> 
+								<input name="companyName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="createPartnerObj.companyName" required />
+							</div>
+							<div ng-messages="newPartnerForm.companyName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="createOrganizationModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="newOrgForm" ng-submit="createPartner(newOrgForm.$valid)" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Invite Organization</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Full Name</label> 
+								<input name="fullName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="fullName" required />
+							</div>
+							<div ng-messages="newOrgForm.fullName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Email</label> 
+								<input name="email" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="email" ng-model="email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required />
+							</div>
+							<div ng-messages="newOrgForm.email.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid email address</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Mobile Phone</label> 
+								<input name="mobilePhone" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="mobile" ng-pattern="/^[\d ()+-]+$/" required />
+							</div>
+							<div ng-messages="newOrgForm.mobilePhone.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid telephone no</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Company Name</label> 
+								<input name="companyName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="companyName" required />
+							</div>
+							<div ng-messages="newOrgForm.companyName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Invite</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="moveOrgModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="childPartnerForm" ng-submit="changePartner()" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Move Organization</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<!-- <label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Partner</label> 
+								<select name="partner" class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style=infoInput title="Choose Partner" required>
+							      <option value="" disabled>Choose Partner</option>
+							      <option value="Male">Little Human Scholars 1</option>
+							      <option value="Male">Little Human Scholars 2</option>
+							      <option value="Male">Little Human Scholars 3</option>
+							    </select> -->
+							    <div
+								    data-angular-treeview="true"
+									data-tree-id="abc"
+									data-tree-model="childPartners"
+									data-node-id="id"
+									data-node-label="name"
+									data-node-children="childPartners" >
+								</div>
+							    
+							</div>
+							<div ng-messages="childPartnerForm.partner.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div id="movePartnerModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="childPartnerForm" ng-submit="changePartner()" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Move Partner</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							    <div
+								    data-angular-treeview="true"
+									data-tree-id="abc"
+									data-tree-model="childPartners"
+									data-node-id="id"
+									data-node-label="name"
+									data-node-children="childPartners" >
+								</div>
+							    
+							</div>
+							<div ng-messages="childPartnerForm.partner.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+.container_margin {
+	margin-top: 50px !important;
+}
+
+.collapse_content {
+	margin: 0;
+	padding: 1rem 0 2rem 0rem;
+}
+
+.collapse_content a {
+	width: 100%;
+}
+
+.school_info {
+	margin-left: 25px !important;
+}

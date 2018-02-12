@@ -1,0 +1,158 @@
+<div class="container-fluid">
+    <div class="row">
+    	<div class="img_div"> <img src="{{invoiceInfo.org.logoUrl}}" class="invoiceLogo" /> </div>
+        <div class="col-md-offset-8 col-md-4 invoice_label">
+            <strong>INVOICE</strong>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="line_div"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 noPadding">
+            <div class="col-xs-12 font_c title noPadding">{{invoiceInfo.org.organizationName}}</div>
+            <div class="col-xs-12 font_c noPadding">{{invoiceInfo.org.streetAddressOne}} {{invoiceInfo.org.streetAddressTwo}}
+                <br/>{{invoiceInfo.org.postCode}} {{invoiceInfo.org.city}}</div>
+            <div class="col-xs-12 font_c noPadding">{{invoiceInfo.org.contactNumber}}
+                <br/>
+                <br/> </div>
+            <div class="col-xs-12 font_c noPadding"><strong>{{invoiceInfo.org.email}}</strong></div>
+        </div>
+        <div class="col-md-12">
+            <div></div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">INVOICE NO:</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.invoice.prefix}} - {{invoiceInfo.invoice.invoiceNumber}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">DATE:</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.invoice.createdDate | date : 'LLLL dd, yyyy'}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">DUE DATE :</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.dueDate | date : 'LLLL dd, yyyy'}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al invoice_al">NOTE:</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.org.headerNote}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">STUDENT NAME:</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.studentName}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">PROGRAM:</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.program}}</div>
+            </div>
+            <div ng-if="invoiceInfo.billingPeriod != null" class="row">
+                <div class="col-xs-10 font_c invoice_al">BILLING PERIOD:</div>
+                <div class="col-xs-2 font_c">{{invoiceInfo.billingPeriod}}</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-xs-1 font_c noPadding"> TO: </div>
+                <!-- <div class="col-xs-11 font_c">
+                    <div class="row">
+                        <div class="parent_name"> LENA DEVI NATHAN </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="row">
+                <div class="col-xs-offset-1 col-xs-11 font_c">
+                    <div class="row">
+                        <div>B607, Blik B, Perdana View Condo,</div>
+                        <div>No 21, Jalan PJU 8/1,</div>
+                        <div>Bandar Damansara Perdana,</div>
+                        <div>47820 Petaling Jaya,</div>
+                        <div>0123456789</div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 table-responsive noPadding">
+            <table class="table table-bordered table_css">
+                <tr>
+                    <td style="width: 4%;"></td>
+                    <td style="width: 66%;">DESCRIPTION</td>
+                    <td style="width: 15%;text-align:right;">UNIT PRICE ({{orgCurrency}})</td>
+                    <td style="width: 15%;text-align:right;">AMOUNT ({{orgCurrency}})</td>
+                </tr>
+                
+                <tr ng-repeat="item in invoiceInfo.items">
+                    <td style="width: 4%;">{{$index + 1}}</td>
+                    <td style="width: 66%;">{{item.studentBillingItems.billingItemName}}</td>
+                    <td style="width: 15%;text-align:right;">{{item.studentBillingItems.unitPrice | number : 2}}</td>
+                    <td style="width: 15%;text-align:right;">{{item.studentBillingItems.amount  | number : 2}}</td>
+                </tr>
+
+                <tr>
+                    <td style="width: 70%;" colspan="2"></td>
+                    <td style="width: 15%;"><b>SUBTOTAL</b></td>
+                    <td style="width: 15%;text-align:right;">{{orgCurrency}}{{invoiceInfo.invoice.invoiceAmount | number : 2}}</td>
+                </tr>
+                <tr ng-if="invoiceInfo.invoice.tax > 0">
+                    <td style="width: 70%;" colspan="2"></td>
+                    <td style="width: 15%;"><b>TAX ({{invoiceTax | number : 2}}%)</b></td>
+                    <td style="width: 15%;text-align:right;">{{orgCurrency}}{{invoiceInfo.invoice.tax | number : 2}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 70%;" colspan="2"></td>
+                    <td style="width: 15%;"><b>TOTAL</b></td>
+                    <td style="width: 15%;text-align:right;">{{orgCurrency}}{{invoiceInfo.invoice.invoiceTotal | number : 2}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-8 col-xs-12 font_c noPadding">
+            <div class="row">
+                <div class="col-xs-2 col-md-3">
+                    BANK:
+                </div>
+                <div class="col-xs-10 col-md-9">
+                    {{invoiceInfo.org.bankName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-md-3">
+                    ACCOUNT NO:
+                </div>
+                <div class="col-xs-10 col-md-9">
+                    {{invoiceInfo.org.bankAccountNo}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-md-3">
+                    ACCOUNT NAME:
+                </div>
+                <div class="col-xs-10 col-md-9">
+                    {{invoiceInfo.org.bankAccountName}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 font_c footer_css">
+            {{invoiceInfo.org.footerNote}}
+            <br/><strong>THANK YOU</strong>
+        </div>
+    </div>
+    <div class="col-sm-12 text-right">
+		<button ng-click="goBackToLocation()" class="btn btn-primary toddlyticButton">Close</button>
+    </div>
+</div>

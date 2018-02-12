@@ -1,0 +1,249 @@
+.categories_selection {
+	width: 100%;
+}
+
+.categories_selection_active {
+	background-color: rgba(0, 0, 0, 0.1);
+	/* animation: somename 0.7s; */
+}
+
+/* @-webkit-keyframes somename {
+  0%   { top: -100px; }
+  100% { top: 0; }
+}
+
+@-moz-keyframes somename {
+  0%   { top: -100px; }
+  100% { top: 0; }
+}
+
+@keyframes somename {
+  0%   { display: none; }
+  100% { display: block; }
+} */
+
+.sc_prog_div_row {
+	margin-top: 15px;
+}
+
+.sc_prog_right_options {
+	margin-top: 8px;
+}
+
+.sc_pro_container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.sc_pro_row {
+	margin-top: 15px;
+}
+
+.school_home_div {
+	display: block;
+}
+
+.school_program_div {
+	display: none;
+}
+
+.school_calendar_div {
+	display: none;
+}
+
+.school_holidays_div {
+	display: none;
+}
+
+.school_menus_div {
+	display: none;
+}
+
+.school_packages_div {
+	display: none;
+}
+
+.school_requests_div {
+	display: none;
+}
+
+.school_rooms_div {
+	display: none;
+}
+
+.school_services_div {
+	display: none;
+}
+
+.school_enrollment_div {
+	display: none;
+}
+
+.workflowModal {
+	width: 55%;
+	height: 80%;
+	max-height: 80% !important;
+}
+
+.selectProgramModal {
+	width: 20%;
+}
+
+.createProgramModal {
+	width: 30%;
+	height: 70%;
+	max-height: 70% !important;
+}
+
+.createActivityModal {
+	width: 30%;
+}
+
+.createChecklistModal {
+	width: 30%;
+}
+
+.createSchoolModal {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+}
+
+.deleteSchoolModal{
+	width: 35%!important;
+    height: 20%!important;
+}
+
+.reqMaintenanceModal {
+	width: 40%;
+	height: 80% !important;
+	max-height: 80% !important;
+}
+
+.reqPurchasingModal {
+	width: 40%;
+	height: 80% !important;
+	max-height: 80% !important;
+}
+
+.rm_importance {
+	margin-top: 27px;
+}
+
+.package_add_btn {
+	margin-top: 20px;
+}
+
+.createPackageModal {
+	width: 50%;
+}
+
+.createMenuModal {
+    width: 30%;
+    height: 35%!important;
+}
+
+.public_holiday_tab {
+	margin-top: 15px;
+}
+
+.public_holiday_add_btn {
+	margin-top: 30px;
+}
+
+.addHolidayModal {
+	width: 40%;
+	height: 90% !important;
+	max-height: 90% !important;
+}
+
+.schoolHolidayRow {
+	margin-top: 20px;
+}
+
+.legend_div {
+	border: 1px black solid;
+}
+
+.legend_text {
+	text-decoration: underline;
+}
+
+#requestPurchasing{
+    padding-top: 20px;
+}
+
+#requestMaintenance{
+    padding-top: 20px;
+}
+
+
+.requestSortButtons{
+	margin: 0px 10px 10px 0px;
+}
+
+.school_rooms_div{
+	padding-top: 20px;
+}
+
+.schoolSelect{
+	margin-top:-10px!important;
+}
+
+.roomAccordionDiv{
+	padding: 0px 0px 20px 0px;
+	height:295px;
+}
+
+.serviceAccordionDiv{
+	padding: 0px 0px 20px 0px;
+}
+
+.collapsible-body p {
+    padding: 1rem;
+}
+
+.school_services_div{
+	padding-top: 20px;
+}
+
+.alignTextInput{
+	position:relative;
+	bottom:10px;
+}
+
+.school_list_empty {
+	margin-top: 100px;
+}
+
+.schoolInfoDiv{
+	display: block;
+}
+
+.editSchoolDiv {
+	display: none;
+}
+
+#addServicesModal{
+	width:50%;
+}
+
+input[type=text]:disabled + label{
+	color:black;
+}
+
+.autocompleteInput{
+    margin-bottom: 0!important;
+}
+
+.autoCompleteList{
+    margin: 0;
+    background: white;
+}
+
+.autoCompleteItem{
+	margin-bottom: 5px;
+	margin-top: 5px;
+    font-size: 15px;
+	
+}

@@ -1,0 +1,84 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="fa fa-users contentIcon"></i>
+			<span class="contentTitle">Users</span>
+		</div>
+		<div class="col-sm-6 text-right">
+			<i class="fa fa-plus-circle actionIcon" data-toggle="tooltip" data-placement="bottom"
+				title="Invite User" ng-click="openModal('createUserModal')"></i>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<table class="table table-hover member_act striped infoTitle" >
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>Email</th>
+						<th>Mobile Number</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+     			<tbody>
+	      			<tr class="clickable-row" ng-repeat="user in users">
+	        			<td>{{ user.name }}</td>
+			            <td>{{ user.email }}</td>
+			            <td>{{ user.mobileNumber }}</td>
+			            <td>{{ user.status }}</td>
+	        		</tr>
+         		</tbody>
+         	</table>
+		</div>
+	</div>
+</div>
+
+<div id="createUserModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="userForm" ng-submit="createUser(userForm.$valid)" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Invite User</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Full Name</label> 
+								<input name="fullName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="fullName" required />
+							</div>
+							<div ng-messages="userForm.fullName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Email</label> 
+								<input name="email" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="email" ng-model="email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required />
+							</div>
+							<div ng-messages="userForm.email.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid email address</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Mobile Phone</label> 
+								<input name="mobilePhone" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="mobile" ng-pattern="/^[\d ()+-]+$/" required />
+							</div>
+							<div ng-messages="userForm.mobilePhone.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid telephone no</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

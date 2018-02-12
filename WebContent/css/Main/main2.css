@@ -1,0 +1,22 @@
+.infoinput_search {
+	text-align: left !important;
+	padding-left: 10px !important;
+    /* background-color: #044059!important; */
+  	background-color: #CCE1F1!important;
+  	color:black!important;
+}
+
+.toddlytic_blue{
+	background-color: rgba(72, 190, 244, 0.62);;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'FontAwesome';
+    content: "\f078";    
+    float: right;
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f054";
+}

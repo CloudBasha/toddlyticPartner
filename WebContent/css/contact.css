@@ -1,0 +1,56 @@
+.contact_info {
+	display: none;
+}
+
+.c_landing_div {
+	display: block;
+}
+
+.student_table {
+	margin-top: 60px;
+}
+
+.role_select label{
+	top: -26px !important;
+}
+
+.role_select input {
+	margin-top: 25px !important;
+}
+
+.photo_upload {
+	margin-top: 24px !important;
+}
+
+.view_contact_info {
+	display: none;
+}
+
+.work_info_row {
+	border-top: 1px black solid;
+	margin-top: 30px;
+}
+
+.work_info_col {
+	margin-top: 15px;
+}
+
+.work_info_icon {
+	font-size: 3rem;
+}
+
+.contact_students_name {
+	font-size: 1.1em;
+}
+
+.stu_con_cb {
+	margin-left: 50px;
+}
+
+.edit_role_select label {
+	top: -18px !important;
+}
+
+.edit_role_select input {
+	margin-top: 9px !important;
+}

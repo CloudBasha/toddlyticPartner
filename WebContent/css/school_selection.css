@@ -1,0 +1,36 @@
+/* School Selection */
+.school_div {
+	/* border-width: 1px;
+	border-style: solid;
+	border-color: black; */
+	-webkit-transition: background .2s;
+	-moz-transition: background .2s;
+	-o-transition: background .2s;
+	transition: background .2s;
+}
+
+.school_div:hover {
+	background-color: #c5cae9;
+	-webkit-transition: background .2s;
+	-moz-transition: background .2s;
+	-o-transition: background .2s;
+	transition: background .2s;
+}
+
+.school_img:hover {
+	cursor: pointer;
+}
+
+.school_padding {
+	/* margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 50px; */
+}
+
+.school_row_margin_bottom {
+	margin-bottom: 0px !important;
+}
+
+.school_image_padding {
+	margin: 0px 0px 10px 40px;
+}

@@ -1,0 +1,150 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="fa fa-building-o contentIcon"></i>
+			<span class="contentTitle">Organizations</span>
+		</div>
+		<div class="col-sm-6 text-right">
+			<i class="fa fa-plus-circle actionIcon" data-toggle="tooltip" data-placement="bottom"
+				title="Invite Organization" ng-click="openModal('createOrganizationModal')"></i>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" ng-if="displayTable">
+			<table class="table table-hover member_act striped infoTitle" datatable="ng"
+			           dt-instance="dtInstance"
+			           dt-options="dtReportOptions"
+			           dt-column-defs="dtColumnDefs">
+     			<tbody>
+	      			<tr class="clickable-row" ng-repeat="organization in organizations">
+	        			<td>{{ organization.organizationName }}</td>
+			            <td>{{ organization.currentEditionName}}</td>
+			            <td>{{ organization.isBillingEnabled === 'false' ? 'Disabled' : 'Enabled' }}</td>
+			            <td>{{ organization.isLeadEnabled === 'false' ? 'Disabled' : 'Enabled' }}</td>
+			            <td>{{ organization.createdDate }}</td> 
+			            <td>
+			             	<a ng-click="viewOrgInfo(organization)" data-toggle="tooltip" data-placement="bottom" title="View Organizations"><i class="fa fa-eye actionIcon"></i></a>
+							<a ng-click="openModal('moveOrgModal', organization);$event.stopPropagation()" data-toggle="tooltip" data-placement="bottom" title="Move Organizations"><i class="fa fa-arrow-right actionIcon pl-10"></i></a>
+						</td>
+	        		</tr>
+         		</tbody>
+         	</table>
+		</div>
+	</div>
+</div>
+
+<div id="createOrganizationModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="newOrgForm" ng-submit="addOrg(newOrgForm.$valid)" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Invite Organization</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Organization Name</label> 
+								<input name="fullName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="inviteOrgObj.organizationName" required />
+							</div>
+							<div ng-messages="newOrgForm.fullName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Full Name</label> 
+								<input name="name" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="inviteOrgObj.name" required />
+							</div>
+							<div ng-messages="newOrgForm.name.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Email</label> 
+								<input name="email" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="email" ng-model="inviteOrgObj.email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required />
+							</div>
+							<div ng-messages="newOrgForm.email.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid email address</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Mobile Phone</label> 
+								<input name="mobilePhone" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" ng-model="inviteOrgObj.mobileNumber" ng-pattern="/^[\d ()+-]+$/" required />
+							</div>
+							<div ng-messages="newOrgForm.mobilePhone.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							    <div ng-message="pattern">This is an invalid telephone no</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-20">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+							 	<label for="icon_telephone" class="infoTitle">Timezone</label>
+							 	</div>
+								<timezone-selector style="padding: 0" class="validate infoInput col-xs-12 col-sm-12 col-md-8 col-lg-9" ng-model="inviteOrgObj.timezone" required name="timezone"/>
+								<div ng-messages="regSchoolForm.timezone.$error" class="help-block noMargin" role="alert">
+								    <div ng-message="required">Required field*</div>
+							  	</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div id="moveOrgModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="childPartnerForm" ng-submit="changePartner()" novalidate>
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Move Organization</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<!-- <label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle">Partner</label> 
+								<select name="partner" class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style=infoInput title="Choose Partner" required>
+							      <option value="" disabled>Choose Partner</option>
+							      <option value="Male">Little Human Scholars 1</option>
+							      <option value="Male">Little Human Scholars 2</option>
+							      <option value="Male">Little Human Scholars 3</option>
+							    </select> -->
+							    <div
+								    data-angular-treeview="true"
+									data-tree-id="abc"
+									data-tree-model="childPartners"
+									data-node-id="id"
+									data-node-label="name"
+									data-node-children="childPartners" >
+								</div>
+							    
+							</div>
+							<div ng-messages="childPartnerForm.partner.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="icon-users contentIcon"></i>
+			<span class="contentTitle"><a ui-sref="organizationInformation({org: orgInfo})">{{ orgInfo.organizationName }}</a> > </a> <a ui-sref="organizationInformation({openTab : 'billing'})">Billing</a> > {{orgName}}</span>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-sm-12">
+        	<div class="col-xs-2 col-sm-offset-10 noPadding pb-20 pt-20">
+			    <input placeholder="Select Date" type="text" class="toddlyticDatepicker date-picker infoInput col-sm-12" ng-model="orgProgramBillingDate" ng-change="getOrgProgramBilling()"/>
+			</div>
+	        <div ng-if="displayOrgProgramBillingTable">
+			    <table class="table table-hover member_act striped infoTitle"
+			           datatable="ng"
+			           dt-instance="dtInstance"
+			           dt-options="dtOrgProgramBillingOptions"
+			           dt-column-defs="dtOrgProgramBillingColumnDefs">
+			      <tbody>
+			        <tr ng-repeat="billingInfo in orgProgramBillingInfo">
+		       			<td ng-click="goToOrgStudentBilling(billingInfo)">{{billingInfo.name}}</td>
+		       			<td ng-click="goToOrgStudentBilling(billingInfo)">{{billingInfo.expectIncome | number : 2}}</td>
+		       			<td ng-click="goToOrgStudentBilling(billingInfo)">{{billingInfo.collectedIncome | number : 2}}</td>
+		       			<td ng-click="goToOrgStudentBilling(billingInfo)">{{billingInfo.shortFall}}</td>
+		       			<!-- <td><i data-toggle="tooltip" data-placement="bottom" title="View Report" class="fa fa-eye actionIcon"></i></td> -->
+		       		</tr>
+			      </tbody>
+			    </table>
+		    </div>
+		</div>
+	</div>
+</div>

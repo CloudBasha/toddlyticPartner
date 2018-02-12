@@ -1,0 +1,103 @@
+/* Login jsp */
+.not_a_customer {
+	color: black;
+	font-size: 1em;
+}
+
+.header_font {
+	color: #88CEED !important;
+	font-family: sans-serif;
+	font-weight: lighter;
+}
+
+.font_color {
+	color: #88CEED !important;
+}
+
+.footer_margin {
+	margin-left: 45%;
+}
+
+.txt_align {
+	text-align: center;
+}
+
+.nav_background {
+	background-color: white;
+	border-bottom-color: #E9F6FB;
+	border-bottom: 1px;
+}
+
+.footer {
+	background-color: white;
+	color: #E9F6FB;
+	overflow: hidden;
+	height: 50px;
+	line-height: 50px;
+}
+
+.login_margin_top {
+	margin-top: 25px !important;
+}
+
+.email_password_input {
+	width: 100%;
+	border-color: #0D47A1 !important;
+	border-radius: 12px !important;
+	margin-top: 15px;
+    color: #15A0DB !important;
+    background-color: #CCE1F1 !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.login_button {
+	width: 100%;
+	border-color: #0D47A1 !important;
+	border-radius: 12px !important;
+    color: #FFFFFF !important;
+    background-color: #15A0DB !important;
+}
+
+.login_button:hover {
+	background-color: #64B5F6 !important;
+}
+
+.try_free_button {
+	color: #88CEED !important;
+	text-transform: none !important;
+	border: 1px !important;
+	border-style: solid !important;
+	border-radius: 10px !important;
+	border-color: #64B5F6 !important;
+	background-color: #fff !important;
+}
+
+.try_free_button:hover {
+	color: #e3f2fd !important;
+	text-transform: none !important;
+	border: 1px !important;
+	border-style: solid !important;
+	border-radius: 10px !important;
+	border-color: #64B5F6 !important;
+	background-color: grey !important;
+}
+
+.title_ico_divider {
+	height: 100%;
+	border-right: 1px black solid;
+}
+
+.footer_margin {
+	margin-top :0px !important;
+	margin-left: 0px !important;
+	padding-top : 15px !important;
+}
+
+.org_reg_logo {
+	margin-top: 24px !important;
+}
+
+.sc_reg_logo {
+	margin-top : 24px !important;
+}

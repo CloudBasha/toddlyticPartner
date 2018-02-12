@@ -1,0 +1,33 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="icon-users contentIcon"></i>
+			<span class="contentTitle"><a ui-sref="organizationInformation({org: orgInfo})">{{ orgInfo.organizationName }}</a> > <a ui-sref="organizationInformation({openTab : 'billing'})">Billing</a> > <a ui-sref="organizationProgramBilling">{{orgName}}</a> > {{programName}}</span>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-sm-12">
+        	<div class="col-xs-2 col-sm-offset-10 noPadding pb-20 pt-20">
+			    <input placeholder="Select Date" type="text" class="toddlyticDatepicker date-picker infoInput col-sm-12" ng-model="orgStudentBillingDate" ng-change="getOrgStudentBilling()"/>
+			</div>
+	        <div ng-if="displayOrgStudentBillingTable">
+			    <table class="table table-hover member_act striped infoTitle"
+			           datatable="ng"
+			           dt-instance="dtInstance"
+			           dt-options="dtOrgStudentBillingOptions"
+			           dt-column-defs="dtOrgStudentBillingColumnDefs">
+			      <tbody>
+			        <tr ng-repeat="billingInfo in orgStudentBillingInfo">
+		       			<td>{{billingInfo.studentName}}</td>
+		       			<td>{{billingInfo.invoiceName}}</td>
+		       			<td>{{billingInfo.invoiceTotal | number : 2}}</td>
+		       			<td>{{billingInfo.paymentStatus}}</td>
+		       			<td ui-sref="invoiceTemplate({obj : billingInfo})"><i data-toggle="tooltip" data-placement="bottom" title="View Invoice" class="fa fa-eye actionIcon"></i></td>
+		       		</tr>
+			      </tbody>
+			    </table>
+		    </div>
+		</div>
+	</div>
+</div>

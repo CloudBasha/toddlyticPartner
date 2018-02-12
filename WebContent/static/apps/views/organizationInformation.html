@@ -1,0 +1,289 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="fa fa-building-o contentIcon"></i>
+			<span class="contentTitle">{{organizationInfo.companyName}}</span>
+		</div>
+	</div>
+	
+	<div class="row">
+        <div class="col-sm-12">
+	        <div class="tabbable tabbable-tabdrop">
+	        	<ul class="nav nav-tabs">
+    				<li heading="Information"><a data-target="#informationTab" data-toggle="tab">Information</a></li>
+    				<li heading="Usage"><a data-target="#usageTab" data-toggle="tab" ng-click="orgUsage()">Licenses</a></li>
+    				<!-- <li heading="Pricing"><a data-target="#pricingTab" data-toggle="tab">Pricing</a></li> -->
+    				<li heading="School Billing"><a data-target="#schoolBillingTab" data-toggle="tab" ng-click="getOrgBilling()">Billing</a></li>
+    				<li heading="Purchase History"><a data-target="#purchaseHistoryTab" data-toggle="tab">Purchase History</a></li>
+   				</ul>
+   				<div id="myTabContent" class="tab-content">
+   					<!-- Information Tab -->
+   					<div id="informationTab" class="tab-pane">
+   						<div class="col-sm-12 pt-20">
+	   						<div class="col-sm-6">
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Company Name</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.companyName">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Company No</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.companyNo">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Email</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.email">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Phone No</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.phoneNo">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Fax No</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.faxNo">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Billing Address</span>
+			        				<textarea rows="3" class="col-sm-6 textarea infoTextArea" disabled ng-model="organizationInfo.billingAddress"></textarea>
+		        				</div>
+	        				</div>
+	        				<div class="col-sm-6 pl-20">
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Schools</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.numberOfSchools">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Teachers</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.noOfTeachers">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Parents</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.noOfParents">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Admins</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.noOfAdmins">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Staff</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.noOfStaffs">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Students</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationInfo.numberOfStudents">
+		        				</div>
+	        				</div>
+        				</div>
+   					</div>
+   					
+   					<!-- Usage Tab -->
+   					<div id="usageTab" class="tab-pane">
+   						<div class="col-sm-12 pt-20">
+	   						<div class="row pb-20">
+								<div class="col-xs-4 col-sm-4">
+									<label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 infoTitle" for="studentGender">Edition</label>
+									<input type="text" class="col-sm-6 infoInput" disabled ng-model="organizationLicenseUsageInfo.editionName">
+								</div>
+								<!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 infoTitle" for="studentGender">Status</label>
+		        					<input type="text" class="col-sm-6 infoInput" disabled value="Active">
+	        					</div> -->
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-10">
+									<!-- <div class="col-sm-6">
+						        		<div class="row pb-20">
+					        				<span class="col-sm-6 infoTitle" style="font-size:15px">Licenses & Consumables</span>
+				        				</div>
+									</div> -->
+									<!-- <div class="col-sm-12 text-right">
+						        		<div class="row pb-20">
+											<i class="fa fa-plus-circle contentIcon"></i>
+											<i class="fa fa-minus-circle contentIcon"></i>
+				        				</div>
+									</div> -->
+								</div>
+							</div>
+							
+							<table class="table infoTitle">
+								<thead>
+									<tr>
+										<th class="text-center">Licenses & Consumables</th>
+										<th class="text-center">Used</th>
+										<th class="text-center">Total</th>
+									</tr>
+								</thead>
+			
+								<tbody>
+									<tr >
+										<td class="text-center">Management</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfUsedManagementLicense}}</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfManagementLicenseAvailable}}</td>
+									</tr>
+									<tr >
+										<td class="text-center">Academic</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfUsedTeacherLicense}}</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfTeacherLicenseAvailable}}</td>
+									</tr>
+									<tr >
+										<td class="text-center">Staff</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfUsedStaffLicense}}</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfStaffLicenseAvailable}}</td>
+									</tr>
+									<tr >
+										<td class="text-center">SMS</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfUsedSms}}</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfSmsPurchased}}</td>
+									</tr>
+									<tr >
+										<td class="text-center">Transactions</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfUsedTransaction}}</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.noOfTransactionPurchaed}}</td>
+									</tr>
+									<tr >
+										<td class="text-center">Storage</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.storageUsed | number : '2'}}</td>
+										<td class="text-center">{{organizationLicenseUsageInfo.storageSize | number : '2'}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+   					</div>
+   					
+   					<!-- Pricing Tab -->
+   					<!-- <div id="pricingTab" class="tab-pane">
+   						<div class="col-ssm-12 pt-20">
+	   						<div class="row pb-20">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<label class="col-xs-2 col-sm-2 col-md-2 col-lg-2 infoTitle" for="studentGender">Edition</label>
+									<select class="selectpicker col-sm-2 noPadding toddlyticSelect" data-style=infoInput title="Choose Edition">
+								      <option value="" disabled>Choose your Edition</option>
+								      <option value="Male">Gold</option>
+								      <option value="Female">Silver</option>
+								      <option value="Female" selected>Free</option>
+								      <option value="Female">Trial</option>
+								    </select>
+									<i class="fa fa-pencil contentIcon pl-20" style="font-size:20px!important"></i>
+								</div>
+							</div>
+							<div class="row pb-20">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-10">
+									<table class="table member_act striped infoTitle">
+	                 					<thead>
+					                  		<tr class="bold">
+						                        <th>Item</th>
+						                        <th>Type</th>
+						                        <th>Price</th>
+						                        <th>Unit</th>
+					                     	</tr>
+			                   			</thead>
+			                   			<tbody>
+			                    			<tr>
+			                        			<td>Management</td>
+						                        <td>License</td>
+						                        <td>RM 300</td>
+						                        <td >per license<td>
+			                    			</tr>
+			                    			<tr>
+			                        			<td>Academic</td>
+						                        <td>License</td>
+						                        <td>RM 200</td>
+						                        <td >per license<td>
+			                    			</tr>
+			                    			<tr>
+			                        			<td>Staff</td>
+						                        <td>License</td>
+						                        <td>RM 100</td>
+						                        <td >per license<td>
+			                    			</tr>
+			                    			<tr>
+			                        			<td>SMS</td>
+						                        <td>Credit</td>
+						                        <td>RM 1</td>
+						                        <td >per SMS<td>
+			                    			</tr>
+			                    			<tr>
+			                        			<td>Transaction</td>
+						                        <td>Credit</td>
+						                        <td>RM 2</td>
+						                        <td >per transaction<td>
+			                    			</tr>
+			                   			</tbody>
+			               			</table>
+								</div>
+							</div>
+						</div>
+   					</div> -->
+   					
+   					<!-- School Billing Tab -->
+   					<div id="schoolBillingTab" class="tab-pane">
+   						<div class="col-sm-12 pt-20">
+   							<div class="col-xs-2 noPadding pb-20 pt-20">
+								<label class="col-xs-12 infoTitle" for="maxCap">Billing Period</label>
+						</div>
+   						<div class="col-xs-2 noPadding pb-20 pt-20">
+						    <input placeholder="Select Date" type="text" id="billingDate" class="toddlyticDatepicker date-picker infoInput col-sm-12" ng-model="orgBillingDate" ng-change="getOrgBilling()"/>
+						</div>
+   						<div ng-if="displayOrgBillingTable">
+						    <table class="table table-hover member_act striped infoTitle"
+						           datatable="ng"
+						           dt-instance="dtInstance"
+						           dt-options="dtOrgBillingOptions"
+						           dt-column-defs="dtOrgBillingColumnDefs">
+						      <tbody>
+						        <tr ng-repeat="billingInfo in orgBillingInfo">
+					       			<td ng-click="goToOrgProgramBilling(billingInfo)">{{billingInfo.name}}</td>
+					       			<td ng-click="goToOrgProgramBilling(billingInfo)">{{billingInfo.expectIncome | number : 2}}</td>
+					       			<td ng-click="goToOrgProgramBilling(billingInfo)">{{billingInfo.collectedIncome | number : 2}}</td>
+					       			<td ng-click="goToOrgProgramBilling(billingInfo)">{{billingInfo.shortFall}}</td>
+					       			<!-- <td><i data-toggle="tooltip" data-placement="bottom" title="View Report" class="fa fa-eye actionIcon"></i></td> -->
+					       		</tr>
+						      </tbody>
+						    </table>
+					    </div>	
+               			</div>
+   					</div>
+   					
+   					<!-- Purchase History Tab -->
+   					<div id="purchaseHistoryTab" class="tab-pane">
+   						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+							<table class="table table-hover member_act striped infoTitle" datatable="ng" dt-options="dtOptions">
+                  				<thead>
+			                  		<tr class="bold">
+			                           	<th>Transation Id</th>
+				                        <th>Amount</th>
+			                			<th>Order Date</th>
+				                        <th>Purchased Date</th>
+				                        <th>Purchaser</th>
+				                        <th>Status</th>
+				                        <th>Action</th>
+			                     	</tr>
+                    			</thead>
+                    			<tbody>
+	                    			<tr class="clickable-row" ng-repeat="history in purchaseOrders">
+	                        			<td>{{ history.transactionId }}</td>
+				                        <td>RM {{ history.amount | number : 2 }}</td>
+				                        <td>{{ history.createdDate}}</td>
+				                        <td>{{ history.paymentHistories[0].paymentCompletedDate | date : 'dd-MM-yyyy HH:mm:ss'}}</td>
+				                        <td>{{ history.createdBy }}</td>
+				                        <td ng-if="history.paymentHistories.length > 0">{{ history.paymentHistories[0].paymentStatus }}</td>
+				                        <td ng-if="history.paymentHistories.length == 0">{{ history.purchaseOrderStatus }}</td>
+				                        <td>
+				                        	<!-- <a ng-if="history.paymentHistories[0].paymentStatus == 'PENDING'" ng-click="retryPayment(history)" data-toggle="tooltip" data-placement="bottom"
+															title="Pay"><i class="icons-resend" style="font-size: 20px!important;color: #2c5c68;padding-right: 5px;"></i></a> -->
+											<a	ng-if="history.purchaseOrderStatus == 'COMPLETED'" ng-click="viewInvoice(history.transactionId, orgInfo.organizationId)" data-toggle="tooltip" data-placement="bottom"
+															title="View Invoice"><i class="fa fa-eye actionIcon"></i></a>
+											<!-- <a	ng-if="history.paymentHistories[0].gatewayName == 'bankTransfer'" ng-click="viewPurchaseOrder(history.transactionId)" data-toggle="tooltip" data-placement="bottom"
+															title="View Purchase Order"><i class="fa fa-eye actionIcon"></i></a> -->
+										</td>
+	                    			</tr>
+                    			</tbody>
+                   			</table>	   
+              			</div>
+   					</div>
+   					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

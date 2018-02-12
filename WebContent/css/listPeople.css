@@ -1,0 +1,246 @@
+.tabsHolderDiv{
+	margin-top:10px;
+}
+
+#studentInfoDiv {
+	display: none;
+}
+
+.editFieldsDiv {
+	position: relative;
+	top: 10px;
+}
+
+.editFieldIcon {
+	color: black;
+}
+
+.editFieldIconPadded {
+	padding-right: 10px;
+	color: black;
+}
+
+.infoFieldDiv {
+	position: relative;
+	top: 7px;
+}
+
+.infoFieldLabel {
+	font-size: 1.3rem;
+	color: black;
+}
+
+input.infoFieldInput:disabled {
+	border: none;
+	color: black;
+	font-size: 1.3rem;
+}
+
+.noMargin {
+	margin: 0;
+}
+
+.parentTableDiv{
+padding-top:20px;	
+}
+
+.parentTable {
+	padding: 20px;
+	color: black;
+}
+
+.btn-block {
+	display: block;
+}
+
+.addButtonDiv {
+	padding-bottom: 10px;
+}
+
+.studentTabDiv {
+	padding-top: 20px;
+}
+
+.studentPhotoCarousel {
+	height: 200px;
+	margin-bottom: -50px;
+	position: relative;
+	top: 20px;
+}
+
+.customDivider{
+	height: 2px;
+    top: 20px;
+    position: relative;
+}
+
+.uploadTemplateDiv{
+	padding-top:20px;
+}
+
+.fileButton{
+    width: 26%;
+}
+
+.downloadSheetButton{
+	width: 35%;
+}
+
+.btn-25{
+	width:24%;
+}
+
+.activityAccordionDiv{
+	padding:20px;
+	padding-left: 5%;
+}
+
+.activityLabel{
+	color: black!important;
+    font-size: 1rem!important;
+    padding-left:0!important;
+}
+
+.healthCheckSelect{
+	position: relative;
+	bottom: 10px;
+}
+
+.left-20{
+    position: relative;
+    left: 20px!important;
+}
+
+.noBottomMargin{
+    margin-bottom: 0!important;
+}
+
+.sleepoMeterIcon{
+    width: 50px;
+}
+
+.activityLabel.active{
+    font-size: 1rem!important;
+}
+
+.appActivityDiv{
+    font-size: 1.5rem;
+}
+
+.parentAlternateEmail{
+    position: relative;
+    bottom: 10px;
+}
+
+.noPaddingLeft{
+	padding-left:0!important;
+}
+
+.studentDashTable{
+    border: solid;
+    text-align:center;
+    font-size: 15px;
+}
+
+.searchPeopleIcon{
+	color: #CCE1F1!important;
+}
+
+.searchPeopleIcon.active{
+	color: #CCE1F1!important;
+}
+
+input.searchPeopleInput:valid { 
+   	border-bottom : 1px solid #CCE1F1!important;
+   	box-shadow: 0 1px 0 0 #CCE1F1!important;
+}
+
+.select-wrapper input.select-dropdown {
+	border-bottom : 2px solid #CCE1F1!important;
+}
+
+.dropdown-content li > span {
+	color: black!important;
+}
+
+.searchPeopleInputLabel{
+	color: #CCE1F1!important;
+}
+
+.searchPeopleInputLabel.active{
+	color: #CCE1F1!important;
+}
+
+input.searchPeopleInput:focus{
+	border-bottom : 1px solid #CCE1F1!important;
+   	box-shadow: 0 1px 0 0 #CCE1F1!important;
+}
+
+.sleepMeterDeleteEntryButton{
+    position: absolute;
+    right: 0;
+    width: 25px;
+    bottom: 30px;
+    height: 25px;
+}
+
+.napTimeDiv{
+	position: relative;
+}
+
+.activityModalsDeleteButton{
+    width: 25px;
+    height: 25px;
+    left: 10px;
+    position: relative;
+}
+
+.emotionIcons{
+   color: #039be5;
+}
+
+.emotionDeleteButton{
+    width: 25px;
+    height: 25px;
+    position: relative;
+}
+
+.contactEditButton{
+    padding-bottom: 15px!important;
+}
+
+input[type=text].valid{
+    border-bottom: 1px solid #CCE1F1!important;
+    box-shadow: 0 1px 0 0 #CCE1F1!important;
+}
+
+#editContactModal{
+    width: 40%!important;
+}
+
+.peopleButtonContainer{
+	padding: 10px!important;
+}
+
+textarea.materialize-textarea:disabled, textarea.materialize-textarea[readonly="readonly"] {
+    color: black!important;
+    border-bottom: none!important;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #CCE1F1;
+    box-shadow: 0 1px 0 0 #CCE1F1;
+}
+
+textarea.materialize-textarea {
+    border-bottom: 2px solid #CCE1F1;
+}
+
+.editParentButton{
+	float:right!important;
+}
+
+.emotionTrackingTime{
+    position: relative;
+    bottom: 10px;
+}

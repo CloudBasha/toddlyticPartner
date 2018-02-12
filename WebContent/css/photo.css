@@ -1,0 +1,36 @@
+.left_menu_btn {
+	width: 100% !important;
+}
+
+.photo_content_margin {
+	margin-top: 15px !important;
+}
+
+.album_hover {
+	-o-transition: .5s;
+	-ms-transition: .5s;
+	-moz-transition: .5s;
+	-webkit-transition: .5s;
+	transition:.5s;
+}
+
+.album_hover:hover {
+	background-color: #bdbdbd;
+}
+
+.default_photo_div {
+	display: block;
+}
+
+.student_photo_div {
+	display: none;	
+}
+
+.public_chkbtn {
+	margin-top: 25px;
+}
+
+.photo_upload_msg {
+	font-size: 0.9em !important;
+	margin: 0;
+}

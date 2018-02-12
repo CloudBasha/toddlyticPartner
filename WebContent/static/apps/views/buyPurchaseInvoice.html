@@ -1,0 +1,157 @@
+<div class="container-fluid">
+    <div class="row">
+    	<div class="img_div"> <img src="./static/images/cbLogo.png" style="width: 300px;height: 50px;" /> </div>
+        <div class="col-md-offset-8 col-md-4 invoice_label">
+            <strong>INVOICE</strong>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="line_div"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 noPadding">
+            <div class="col-xs-12 font_c title noPadding">Cloud Basha Sdn Bhd</div>
+            <div class="col-xs-12 font_c noPadding">Unit A-12-10, Tower A, Menara UOA,</br>Bangsar, No. 5, Jalan Bangsar Utama 1,
+                <br/>59000 Kuala Lumpur, Malaysia</div>
+            <div class="col-xs-12 font_c noPadding">+60 3 2035 5544
+                <br/>
+                <br/> </div>
+            <div class="col-xs-12 font_c noPadding"><strong>sales@toddlytic.com</strong></div>
+        </div>
+        <div class="col-md-12">
+            <div></div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">INVOICE NO:</div>
+                <div class="col-xs-2 font_c">{{stateParamsObj.transactionId}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">ORDER DATE:</div>
+                <div class="col-xs-2 font_c">{{stateParamsObj.formattedDate}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">DUE DATE :</div>
+                <div class="col-xs-2 font_c">{{stateParamsObj.dueDate}}</div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-xs-10 font_c invoice_al">BILLING PERIOD:</div>
+                <div ng-if="stateParamsObj.billingPeriod == '1'" class="col-xs-2 font_c">Monthly</div>
+                <div ng-if="stateParamsObj.billingPeriod == '3'" class="col-xs-2 font_c">Quarterly</div>
+                <div ng-if="stateParamsObj.billingPeriod == '6'" class="col-xs-2 font_c">Half Yearly</div>
+                <div ng-if="stateParamsObj.billingPeriod == '12'" class="col-xs-2 font_c">Yearly</div>
+            </div> -->
+            <div class="row">
+                <div class="col-xs-10 font_c invoice_al">EDITION:</div>
+                <div class="col-xs-2 font_c">{{stateParamsObj.edition}}</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="row">
+                <div class="col-xs-1 font_c noPadding"> Attn: </div>
+                <div class="col-xs-11 font_c">
+                    <div class="row">
+                        <div class="parent_name"> {{stateParamsObj.createdBy}} </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1 font_c noPadding"> To: </div>
+                <div class="col-xs-11 font_c">
+                    <div class="row">
+                        <div>{{orgInfo.organizationName}}</div>
+                        <div>{{orgInfo.streetAddressOne}}</div>
+                        <div>{{orgInfo.streetAddressTwo}}</div>
+                        <div>{{orgInfo.postCode}} {{orgInfo.city}}</div>
+                        <div>{{orgInfo.country}}</div>
+                        <div>{{orgInfo.contactNumber}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 table-responsive noPadding">
+            <table class="table table-bordered table_css">
+                <tr>
+                    <td style="width: 4%;"></td>
+                    <td style="width: 66%;">DESCRIPTION</td>
+                    <td style="width: 8%;">QTY</td>
+                    <td style="width: 10%;text-align:right;">UNIT PRICE</td>
+                    <td style="width: 12%;text-align:right;">AMOUNT (Per Month)</td>
+                </tr>
+                
+                <tr ng-repeat="item in stateParamsObj.billItems">
+                    <td style="width: 4%;">{{$index + 1}}</td>
+                    <td style="width: 66%;">{{item.name}}</td>
+                    <td style="width: 8%;text-align:right;">{{item.qty}}</td>
+                    <td style="width: 10%;text-align:right;">{{item.unitPrice  | number : 2}}</td>
+                    <td style="width: 12%;text-align:right;">{{item.unitPrice * item.qty | number : 2}}</td>
+                </tr>
+
+                <tr>
+                    <td style="width: 70%;" colspan="3"></td>
+                    <td style="width: 10%;"><b>SUBTOTAL</b></td>
+                    <td style="width: 20%;text-align:right;">USD{{stateParamsObj.subtotal | number : 2}}</td>
+                </tr>
+                <!-- <tr>
+                    <td style="width: 70%;" colspan="3"></td>
+                    <td style="width: 10%;"><b>GST</b></td>
+                    <td style="width: 20%;">RM{{stateParamsObj.taxAmount | number : 2}}</td>
+                </tr> -->
+                <tr>
+                    <td style="width: 70%;" colspan="3"></td>
+                    <td style="width: 10%;"><b>TOTAL</b></td>
+                    <td style="width: 20%;text-align:right;">USD{{stateParamsObj.total | number : 2}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-8 col-xs-12 font_c noPadding">
+            <div class="row">
+                <div class="col-xs-2 col-md-3">
+                    BANK:
+                </div>
+                <div class="col-xs-10 col-md-9">
+                    Maybank
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-md-3">
+                    ACCOUNT NO:
+                </div>
+                <div class="col-xs-10 col-md-9">
+                     514169655476
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-md-3">
+                    BRANCH:
+                </div>
+                <div class="col-xs-10 col-md-9">
+                    Petaling Jaya Main
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 font_c footer_css">
+            Cheque: Please make all cheques payable to : Cloud Basha Sdn Bhd
+            <br/><strong>THANK YOU</strong>
+        </div>
+    </div>
+    <div class="col-sm-12 text-right">
+		<button ui-sref="organizationInformation({openTab : 'purchaseHistory'})" class="btn btn-primary toddlyticButton">Close</button>
+    </div>
+</div>

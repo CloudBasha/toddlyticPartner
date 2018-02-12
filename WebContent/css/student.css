@@ -1,0 +1,80 @@
+.tr_hover {
+	cursor: pointer !important;
+}
+
+.student_modal_row {
+	border-top: 1px #bdbdbd solid;
+	padding-top: 15px;
+}
+
+.autoC_ul ul{
+	position: absolute !important;
+}
+
+.li_student_img {
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+.contact_table {
+	margin-top: 60px;
+}
+
+/* Student Creation */
+
+.photo_btn {
+	margin-top: 20px !important;
+}
+
+/* .role_checkbox {
+	margin-top: 18px !important;
+} */
+
+.tag_student {
+	margin-top: 50px;
+}
+
+.gender_select label {
+	top: -26px !important;
+}
+
+.gender_select input {
+	margin-top: 24px !important;
+}
+
+.role_select label {
+	top: -26px !important;
+}
+
+.role_select input {
+	margin-top: 24px !important;
+}
+
+.photo_sec_con {
+	margin-top: 23px !important;
+}
+/* List Student */
+
+.view_student_info {
+	display: none;
+}
+
+.student_func {
+	display: none;
+}
+
+.student_info {
+	display: none;
+}
+
+.landing_div {
+	display: block;
+}
+
+.edit_gender_select label {
+	top: -15px !important;
+}
+
+.edit_gender_select input {
+	margin-top: 10px !important;
+}

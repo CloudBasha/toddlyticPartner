@@ -1,0 +1,135 @@
+.my_profile_div {
+	display: block;
+}
+
+.settings_billing_div {
+	display: none;
+}
+
+.settings_role_div {
+	display: none;
+}
+
+.system_locale_div {
+	display: none;
+}
+
+.enable_billing_div {
+	display: none;
+}
+
+.changePasswordModal {
+	width: 30%;
+}
+
+.addMoreFieldModal {
+	width: 40%;
+}
+
+.add_mf_btn {
+	margin-top: 20px;
+}
+
+.btn.btn-fb {
+	color: #fff !important;
+	background-color: #3b5998 !important
+}
+
+.btn.btn-google {
+	color: #fff !important;
+	background-color: #c23321 !important
+}
+
+.btn.btn-linkedin {
+	color: #fff !important;
+	background-color: #007bb6 !important
+}
+
+.btn.btn-twitter {
+	color: #fff !important;
+	background-color: #55acee !important
+}
+
+.profile_margin {
+	margin-top: 20px;
+	padding: 1px;
+}
+
+.profile_label {
+	margin-top: 2px;
+}
+
+.profile_edit_row{
+	margin-bottom: 10px;
+}
+
+.profile_info_row {
+	margin-top: 10px;
+}
+
+.profile_sub_menus {
+	margin-top: 20px;
+}
+
+.profile_info_card {
+	display: block;
+}
+
+
+
+.role_action_chkbox {
+	top: 0.4rem !important;
+}
+
+.cloneRoleModal {
+	width: 20%;
+}
+
+.priviledge_custom_label {
+	line-height: 50px;
+}
+
+.priviledge_roles_row {
+	padding-top: 15px;
+}
+
+.table_container {
+	width: 95%;
+	margin: 0 auto;
+}
+
+[type="checkbox"].filled-in.priviledge_table:checked + label:after {
+	background-color: #BDBDBD;
+}
+
+.enable_billing_row {
+	margin-top: 15px;
+}
+
+.plan_div {
+	border: 1px black solid;
+}
+
+.plan_p {
+	margin-bottom: 8px !important;
+}
+
+.input_count {
+	height: 1.5rem !important;
+}
+
+.add_program_btn {
+	margin-top: 15px;
+}
+
+.acc_details {
+	text-decoration: underline;
+}
+
+.rev_payment {
+	margin-top: 15px;
+}
+
+.plan_row {
+	padding-left: 60px;
+}

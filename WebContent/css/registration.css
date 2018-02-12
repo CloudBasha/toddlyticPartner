@@ -1,0 +1,77 @@
+/* Registration Selection Page */
+
+.registrationSelectDiv{
+	text-align:center;
+	padding-top: 10%!important;	
+}
+
+.userOptionBut{
+	margin-bottom : 6%;
+}
+
+/* Registration Page */
+
+.registrationDiv{
+    padding: 3% 2% 0% 2%;
+    margin-top:2%!important;
+    background-color : white;
+    border-radius: 10px!important;
+}
+
+.submitRegistrationBut{
+	text-align: right;
+	background-color:#CCE1F1;
+	border-radius:5px!important;
+}
+
+.submitButtonLabel{
+    position: relative;
+    bottom: 6px;
+}
+
+.coloredIcons{
+   color: #CCE1F1;
+   position: relative;
+   top: -3px;
+}
+
+.coloredIcons.active{
+	color: #CCE1F1!important;
+}
+
+input.registrationInput:focus { 
+   	border-bottom : 1px solid #CCE1F1!important;
+   	box-shadow: 0 1px 0 0 #CCE1F1!important;
+}
+
+input.registrationInput:disabled { 
+   	border-bottom : 1px solid #CCE1F1!important;
+   	box-shadow: 0 1px 0 0 #CCE1F1!important;
+}
+
+input.registrationInput:valid { 
+   	border-bottom : 1px solid #CCE1F1!important;
+   	box-shadow: 0 1px 0 0 #CCE1F1!important;
+}
+
+.registrationInputLabel.active{
+	color: #CCE1F1!important;
+}
+
+.parentRegistationDiv{
+	padding-top:5%;
+}
+
+.schoolInvitationDiv{
+	padding-top:2%;
+}
+
+.carouselDiv{
+    position: relative;
+    top: 30px;
+}
+
+.proceedToInviteSchool{
+	text-align: right;
+	padding-top:10%!important;
+}

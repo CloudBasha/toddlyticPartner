@@ -1,0 +1,11 @@
+diff a/src/com/controller/PartnerController.java b/src/com/controller/PartnerController.java	(rejected hunks)
+@@ -48,7 +48,8 @@
+ 	
+ 	private Logger log = Logger.getLogger(this.getClass());
+ 	
+-	private static String MAIN_URL = "https://localhost:8443/Toddlytics/partner/";
++	private static String MAIN_URL = "https://sit.toddlytic.com/partner/";
++//	private static String MAIN_URL = "http://localhost:8080/Toddlytics/partner/";
+ 
+ 	@RequestMapping(value = "getPartnerAssesmentByPartnerId", method = RequestMethod.POST)
+ 	public @ResponseBody Map<String, Object> getAssesmentCategories(@RequestBody Map<String, Object> requestParams, HttpServletRequest request,

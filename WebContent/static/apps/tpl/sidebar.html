@@ -1,0 +1,55 @@
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li class="nav-item">
+            <a ui-sref="profile" class="portlet profile-sidebar-portlet">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                   	<img ng-if="profilePicUrl == null" src="./images/defaultAvatar.jpg" class="img-responsive" alt="">  
+                   	<img ng-if="profilePicUrl != null" src="{{profilePicUrl}}" class="img-responsive" alt="">  
+                </div>
+                    
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">{{userName}}</div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+            </a>
+        </li>
+        
+		<li class="nav-link">
+			<a ui-sref="myPartners" ng-if="!enterprise" class="nav-item">
+			    <i class="fa fa-building-o"></i>
+			    <span class="title">My Partners</span>
+			</a>
+			
+			<a ui-sref="enterprise_myPartners" ng-if="enterprise" class="nav-item">
+			    <i class="fa fa-building-o"></i>
+			    <span class="title">My Partners</span>
+			</a>
+		</li>
+		
+		<li class="nav-link" ng-if="!enterprise">
+			<a ui-sref="organizations" class="nav-item">
+			    <i class="fa fa-building-o"></i>
+			    <span class="title">My Organizations</span>
+			</a>
+		</li>
+		
+		
+		<li class="nav-link" ng-if="!enterprise">
+			<a ui-sref="users" class="nav-item">
+			    <i class="fa fa-users"></i>
+			    <span class="title">Users</span>
+			</a>
+		</li>
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>

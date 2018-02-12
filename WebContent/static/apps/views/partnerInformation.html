@@ -1,0 +1,114 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="fa fa-building-o contentIcon"></i>
+			<span class="contentTitle">{{partnerInfo.orgName}}</span>
+		</div>
+	</div>
+	
+	<div class="row">
+        <div class="col-sm-12">
+	        <div class="tabbable tabbable-tabdrop">
+	        	<ul class="nav nav-tabs">
+    				<li heading="Information"><a data-target="#informationTab" data-toggle="tab">Information</a></li>
+    				<li heading="School Billing"><a data-target="#schoolBillingTab" data-toggle="tab">School Billing</a></li>
+   				</ul>
+   				<div id="myTabContent" class="tab-content">
+   					<!-- Information Tab -->
+   					<div id="informationTab" class="tab-pane">
+   						<div class="col-sm-12 pt-20">
+	   						<div class="col-sm-6">
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Company Name</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.companyName">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Company No</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.companyNo">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Email</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.email">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Phone No</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.phoneNo">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Fax No</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.faxNo">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Billing Address</span>
+			        				<textarea rows="3" class="col-sm-6 textarea infoTextArea" disabled ng-model="partnerInfo.billingAddress"></textarea>
+		        				</div>
+	        				</div>
+	        				<div class="col-sm-6 pl-20">
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Schools</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.numberOfSchools">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Teachers</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.numberOfTeachers">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Parents</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.numberOfParents">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Admins</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.numberOfAdmins">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Staff</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.numberOfStaff">
+		        				</div>
+				        		<div class="row pb-20">
+			        				<span class="col-sm-6 infoTitle">Number of Students</span>
+			        				<input type="text" class="col-sm-6 infoInput" disabled ng-model="partnerInfo.numberOfStudents">
+		        				</div>
+	        				</div>
+        				</div>
+   					</div>
+   					
+   					<!-- School Billing Tab -->
+   					<div id="schoolBillingTab" class="tab-pane">
+   						<div class="col-sm-12 pt-20">
+   							<div class="col-sm-2 pb-20" style="float:right">
+								<input type="text" placeholder="Month" class="toddlyticDatepicker date-picker infoInput col-sm-12"/>
+							</div>
+							<table class="table table-hover member_act striped infoTitle">
+	               					<thead>
+			                  		<tr class="bold">
+				                        <th>Program</th>
+				                        <th>Income</th>
+				                        <th>No. of Students</th>
+			                     	</tr>
+	                   			</thead>
+	                   			<tbody>
+	                    			<tr ui-sref="organizationBilling">
+	                        			<td>Infant Program</td>
+				                        <td>RM 125000</td>
+				                        <td>80</td>
+	                    			</tr>
+	                    			<tr ui-sref="organizationBilling">
+	                        			<td>Pre School Program</td>
+				                        <td>RM 35000</td>
+				                        <td>20</td>
+	                    			</tr>
+	                    			<tr ui-sref="organizationBilling">
+	                        			<td>Day Care</td>
+				                        <td>RM 10000</td>
+				                        <td>8</td>
+	                    			</tr>
+	                   			</tbody>
+	               			</table>
+               			</div>
+   					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,405 @@
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="ProfileController">
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="icon-users contentIcon"></i>
+			<span class="contentTitle">My Profile</span>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-sm-12">
+			<div class="col-sm-2">
+				<div class="info-userpic pb-10" ng-click="openUploadPhotoModal()">
+                   	<img ng-if="contactInfo.photoUrl == null" id="contactImage" src="./images/defaultAvatar.jpg" class="img-responsive contactInfoImg" alt="">
+                    <img ng-if="contactInfo.photoUrl != null" id="contactImage" src="{{contactInfo.photoUrl}}" class="img-responsive contactInfoImg" alt="">
+                   	<i class="fa fa-picture-o uploadMyProfileImageIcon"></i> 
+                   </div>
+                <div class="row text-center pb-20">
+                    <div class="profile-usertitle-name">{{contactInfo.name}}</div>
+                    <div class="profile-usertitle-job">{{contactType}}</div>
+                </div>
+  				<div class="row text-center pb-20">
+   					<button class="toddlyticButton btn btn-primary" ng-click="changePasswordModal()">Change Password</button>
+  				</div>
+            </div>
+            <div class="col-sm-10">
+				<div class="panel-group accordion" id="profileAccordion">
+	                <div class="panel">
+	                     <div class="panel-heading accordionHeading">
+	                         <h4 class="panel-title">
+	                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#profileAccordion" data-target="#profileInformation">Information</a>
+	                         </h4>
+	                     </div>
+	                	 <div id="profileInformation" class="panel-collapse in">
+	                         <div class="panel-body">
+		                	 	<!-- <div class="col-sm-12 text-right actionButtonContainer">
+					        		<i ng-click="openEditProfile(contactInfo)" data-toggle="tooltip" data-placement="bottom" title="Edit" class="fa fa-pencil-square-o actionIcon"></i>
+					        	</div> -->
+	                             <div class="col-sm-12">
+	                             	<div class="infoContentContainer">
+	                             		<form name="profileForm">
+	                             			<div class="col-sm-6 text-left">
+								        		<div class="row pb-20">
+							        				<span class="col-sm-4 infoTitle">Name</span>
+							        				<input type="text" class="col-sm-8 infoInput text-center" ng-model="contactInfo.name">
+						        				</div>
+						        				<!-- <div class="row pb-20">
+							        				<span class="col-sm-4 infoTitle">Email</span>
+							        				<input type="text" class="col-sm-8 infoInput" ng-model="contactInfo.email" disabled="">												        				
+						        				</div> -->
+						        				<div class="row pb-20">
+							        				<span class="col-sm-4 infoTitle">Company Name</span>
+							        				<input type="text" class="col-sm-8 infoInput" ng-model="contactInfo.companyName">
+						        				</div>
+						        				<div class="row pb-20">
+							        				<span class="col-sm-4 infoTitle">Mobile</span>
+							        				<input type="text" class="col-sm-8 infoInput" ng-model="contactInfo.mobileNumber">
+						        				</div>
+						        				<button class="btn btn-secondary toddlyticButton" ng-click="editProfile(profileForm.$valid, contactInfo)">Save</button>
+								        	</div>
+	                             		</form>
+							        	
+						        	</div>
+	                       		</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- <div class="panel">
+	                     <div class="panel-heading accordionHeading">
+	                         <h4 class="panel-title">
+	                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#profileAccordion" data-target="#locale">Locale</a>
+	                         </h4>
+	                     </div>
+	                	 <div id="locale" class="panel-collapse collapse">
+	                         <div class="panel-body">
+	                             <div class="col-sm-12">
+	                             	<div class="infoContentContainer">
+							        	<div class="col-sm-6 text-left">
+							        		<div class="row pb-20">
+						        				<span class="col-sm-4 infoTitle">Currency</span>
+						        				<select class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style=infoInput title="Choose Currency">
+											      <option value="" disabled>Choose Currency</option>
+											      <option value="Male" selected>MYR - Malaysian Ringgit</option>
+											      <option value="Female" disabled>More Coming Soon</option>
+											    </select>
+					        				</div>
+					        				<div class="row pb-20">
+						        				<span class="col-sm-4 infoTitle">Timezone</span>
+						        				<select class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style=infoInput title="Choose Timezone">
+											      <option value="" disabled>Choose Timezone</option>
+											      <option value="Male" selected>Malaysia Time (MYT)</option>
+											      <option value="Female" disabled>More Coming Soon</option>
+											    </select>
+					        				</div>
+							        	</div>
+							        	<div class="col-sm-6 text-left">
+					        				<div class="row pb-20">
+						        				<span class="col-sm-4 infoTitle">Language</span>
+						        				<select class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style=infoInput title="Choose Language">
+											      <option value="" disabled>Choose Language</option>
+											      <option value="Male" selected>English (GB)</option>
+											      <option value="Female" disabled>More Coming Soon</option>
+											    </select>
+					        				</div>
+							        	</div>
+						        	</div>
+	                       		</div>
+							</div>
+						</div>
+					</div> -->
+					
+					<div class="panel">
+	                     <div class="panel-heading accordionHeading">
+	                         <h4 class="panel-title">
+	                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#profileAccordion" data-target="#devices">My Devices</a>
+	                         </h4>
+	                     </div>
+	                	 <div id="devices" class="panel-collapse collapse">
+	                         <div class="panel-body">
+	                             <div class="col-sm-12">
+	                             	<div ng-if=displayTable>
+									    <table class="table table-hover member_act striped infoTitle"
+									           datatable="ng"
+									           dt-instance="dtInstance"
+									           dt-options="dtDevicesOptions"
+									           dt-column-defs="dtDevicesColumnDefs">
+									      <tbody>
+									        <tr ng-repeat="device in allDevices">
+								       			<td>{{device.platform}}</td>
+								       			<td>{{device.modelName}}</td>
+								       			<td>{{device.imei}}</td>
+								       			<td>{{device.ip}}</td>
+								       			<td>{{device.lastLogin | date : 'dd-MM-yyyy hh:mm a'}}</td>
+								       		</tr>
+									      </tbody>
+									    </table>
+								    </div>
+	                       		</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+			</div>       
+    	</div>
+	</div>
+</div>
+
+<div id="editProfileModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="editProfileForm" ng-submit="editProfile(editProfileForm.$valid)" novalidate>
+				<div class="modal-header">
+					<div class="col-sm-6 text-left">
+						 <h3 class="Lato_normal_font">Edit Profile Information</h3>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="newStaffName">Name</label> 
+								<input name="newStaffName" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="newStaffName" ng-model="staffName" required/>
+							</div>
+							<div ng-messages="editProfileForm.newStaffName.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffEmail">Email</label> 
+								<input name="newStaffEmail" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" disabled type="email" id="staffEmail" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' ng-model="staffEmail" required/>
+							</div>
+							<div ng-messages="editProfileForm.newStaffEmail.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+					   			<div ng-message="pattern">This is an invalid email address</div>
+							</div>
+						</div>
+						<!-- <div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffType">Type</label> 
+								<select name="staffType" class="selectpicker col-sm-6 noPadding toddlyticSelect" data-style="infoInput" ng-model="staffType" title="Choose Option" required>
+							      <option value="" disabled selected>Choose Option</option>
+							      <option value="Admin">Admin</option>
+							      <option value="Teacher">Teacher</option>
+							    </select>
+								<div ng-messages="editProfileForm.staffType.$error" class="col-sm-12 help-block noMargin noPadding" role="alert">
+									<div ng-message="required">Required field*</div>
+								</div>
+							</div>
+						</div> -->
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 infoTitle" for="newStaffMob">Mobile</label>
+							    <input name="newStaffMobile" class="col-sm-5 col-xs-5 col-md-5 col-lg-5 infoInput" type="text" id="newStaffMob" ng-model="staffMob" ng-pattern="/^[\d ()+-]+$/"/>
+							    <div class="col-sm-1" style="margin-top: 7px;">
+					            	<i ng-click="showInfo()" class="fa fa-info-circle actionIcon"></i>
+					          	</div>
+							</div>
+							<div ng-messages="editProfileForm.newStaffMobile.$error" class="col-sm-12 help-block noMargin" role="alert">
+					   			<div ng-message="pattern">This is not a valid telephone number</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffPhone">Phone</label> 
+								<input name="staffContact" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="text" id="staffPhone" ng-model="staffContactNo" ng-pattern="/^[\d ()+-]+$/"/>
+							</div>
+							<div ng-messages="editProfileForm.staffContact.$error" class="col-sm-12 help-block noMargin" role="alert">
+					   			<div ng-message="pattern">This is not a valid telephone number</div>
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffPosition">Designation</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffPosition" ng-model="staffPosition" />
+							</div>
+						</div>
+						<div class="row pb-10">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffIdNo">Identification No</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffIdNo" ng-model="staffIdNo" />
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffAddress1">Address 1</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffAddress1" ng-model="staffAddress1" />
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffAddres2">Address 2</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffAddress2" ng-model="staffAddress2" />
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffCity">City</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffCity" ng-model="staffCity" />
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffPostCode">Post Code</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffPostCode" ng-model="staffPostCode" />
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffState">State</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffState" ng-model="staffState" />
+							</div>
+						</div>
+						<div class="row pb-20">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="staffCountry">Country</label> 
+								<input class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" empty-input type="text" id="staffCountry" ng-model="staffCountry" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Save</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="changePasswordModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="changePasswordForm" ng-submit="changePasswordSubmit(changePasswordForm.$valid)" novalidate>
+				<div class="modal-header">
+					<div class="col-sm-6 text-left">
+						 <h3 class="Lato_normal_font">Change Password</h3>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="newStaffName">Current Password</label> 
+								<input name="currentPassword" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="password" id="newStaffName" ng-model="changePassword.currentPassword" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required/>
+							</div>
+							<div ng-messages="changePasswordForm.currentPassword.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+					   			<div ng-message="pattern">Password does not match required criteria.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="newStaffName">New Password</label> 
+								<input name="newPassword" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="password" id="newStaffName" ng-model="changePassword.newPassword" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required/>
+							</div>
+							<div ng-messages="changePasswordForm.newPassword.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+					   			<div ng-message="pattern">Password does not match required criteria.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="newStaffName">Confirm Password</label> 
+								<input name="cPassword" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="password" id="newStaffName" ng-model="changePassword.newCPassword" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required/>
+							</div>
+							<div ng-messages="changePasswordForm.cPassword.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+					   			<div ng-message="pattern">Password does not match required criteria.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Submit</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="createPasswordModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content toddlyticModal">
+			<form name="createPasswordForm" ng-submit="createPasswordSubmit(createPasswordForm.$valid)" novalidate>
+				<div class="modal-header">
+					<div class="col-sm-6 text-left">
+						 <h3 class="Lato_normal_font">Create Password</h3>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid bd-row">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="newStaffName">New Password</label> 
+								<input name="newPassword" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="password" id="newStaffName" ng-model="createPassword.newPassword" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required/>
+							</div>
+							<div ng-messages="createPasswordForm.newPassword.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+					   			<div ng-message="pattern">Password does not match required criteria.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoTitle" for="newStaffName">Confirm Password</label> 
+								<input name="cPassword" class="col-sm-6 col-xs-6 col-md-6 col-lg-6 infoInput" type="password" id="newStaffName" ng-model="createPassword.newCPassword" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required/>
+							</div>
+							<div ng-messages="createPasswordForm.cPassword.$error" class="col-sm-12 help-block noMargin" role="alert">
+								<div ng-message="required">Required field*</div>
+					   			<div ng-message="pattern">Password does not match required criteria.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Submit</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="addMyProfilePhotoModal" class="modal fade bd-modal-md">
+	<div class="modal-dialog modal-md">
+		<form ng-submit="addPhoto(addMyProfilePhotoForm.$valid)" name="addMyProfilePhotoForm" novalidate>
+			<div class="modal-content toddlyticModal">
+				<div class="modal-header">
+					<h3 class="Lato_normal_font">Add Photo</h3>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 infoTitle" for="c_albumName">Photo</label> 
+                            <input type="file" class="col-sm-8 infoInput contactPhotoFile" name="contactPhotoFile" data-max-size="5000000" file-model="contactPhoto" required/>
+						</div>
+						<div class="col-sm-12 help-block noMargin">The photo size should be less than 5Mb</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary toddlyticButton">Add</button>
+					<button class="btn btn-secondary toddlyticButton" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<div id="showMobileInfoModal" class="modal fade bd-modal-sm">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content toddlyticModal">
+			<div class="modal-header">
+				<h3 class="Lato_normal_font">Information</h3>
+			</div>
+			<div class="modal-body">
+				Please key in this mobile phone's number(including your country code) to automatically verify your phone number via SMS. <br>Sample phone number format: +60161234567
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+.view_meal_info {
+	display: block;
+}
+
+.view_recipe_info {
+	display: none;
+}
+
+.recipe_popup_name {
+	text-decoration: underline;
+}

@@ -1,0 +1,35 @@
+.broadcastAccordionDiv{
+	height: 720px;
+}
+
+#addAnnouncementModal{
+	width:40%;
+}
+
+#reviewAnnouncementModal{
+	width:40%;
+}
+
+#newsletter_dash_div{
+	padding-top:30px;
+}
+
+#photo_dash_div{
+	padding-top:30px;
+}
+
+#photoLink{
+	padding-top:30px;
+}
+
+#albumLink{
+	padding-top:30px;
+}
+
+#messages_dash_div{
+	padding-top:30px;
+}
+
+#mobileAppStatsChartContainer{
+	height:300px;
+}

@@ -1,0 +1,63 @@
+<div class="container login_margin_top">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12 text-center">
+			<h3 class="registrationTitle">Registration</h3>
+		</div>
+		<div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 registrationDiv text-left" style="background-color: #fff; padding-top: 20px">
+			<div class="row">
+				<form name="regActivationForm" ng-submit="setupFirstTimePassword(regActivationForm.$valid)" class="col-sm-12 col-md-12 col-lg-12 offset-m2" novalidate>
+					<div class="row pb-20">
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<i class="material-icons prefix coloredIcons col-xs-1 col-sm-1 col-md-1 col-lg-1 noPadding">email</i> 
+						 	<label for="icon_telephone" class="col-xs-11 col-sm-5 col-md-5 col-lg-4">Email Address</label>
+							<input name="ownerEmail" type="email" disabled ng-model="registeredEmail" class="col-xs-offset-1 col-xs-11 col-sm-offset-0 col-sm-6 col-md-6 col-lg-7 greyedInput" required>
+						</div>
+					</div>
+					<div class="row pb-20">
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<i class="material-icons prefix coloredIcons col-xs-1 col-sm-1 col-md-1 col-lg-1 noPadding">lock</i> 
+						 	<label for="icon_telephone" class="col-xs-11 col-sm-5 col-md-5 col-lg-4">Password</label>
+							<input name="password" type="password" ng-model="registerObj.password" class="col-xs-offset-1 col-xs-11 col-sm-offset-0 col-sm-6 col-md-6 col-lg-7" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required>
+							<div ng-messages="regActivationForm.password.$error" class="help-block noMargin" role="alert">
+								<div ng-message="required">Required Field*</div>
+					   			<div ng-message="pattern">Password must be minimum 6 characters and alphanumeric.</div>
+					   		</div>
+						</div>
+					</div>
+					<div class="row pb-20">
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<i class="material-icons prefix coloredIcons col-xs-1 col-sm-1 col-md-1 col-lg-1 noPadding">lock</i> 
+						 	<label for="icon_telephone" class="col-xs-11 col-sm-5 col-md-5 col-lg-4">Confirm Password</label>
+							<input name="cPassword" type="password" ng-model="registerObj.cPassword" class="col-xs-offset-1 col-xs-11 col-sm-offset-0 col-sm-6 col-md-6 col-lg-7" ng-pattern='/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z_@./#&+-]{6,}$/i' required>
+							<div ng-messages="regActivationForm.cPassword.$error" class="help-block noMargin" role="alert">
+								<div ng-message="required">Required Field*</div>
+					   			<div ng-message="pattern">Password must be minimum 6 characters and alphanumeric.</div>
+					   		</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12  col-md-12 col-lg-12 text-right pb-20">
+							<button class="btn submitRegistrationBut" type="submit">
+								<span>Submit</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="firstTimeLoginDisclaimerModal" class="modal fade bd-modal-sm">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content toddlyticModal">
+			<div class="modal-header">
+				<h3 class="Lato_normal_font">Account Registered</h3>
+			</div>
+			<div class="modal-body">You can also use Google or Facebook social login on our mobile app and website if it matches the email address that you have registered with us.</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary toddlyticButton" data-dismiss="modal" ng-click="doLogin()">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>

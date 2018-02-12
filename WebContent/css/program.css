@@ -1,0 +1,24 @@
+.sub_menu {
+	padding: 10px;
+}
+
+.sub_menu:hover {
+	padding: 10px;
+	background-color: #bdbdbd;
+}
+
+/* .daily_prog_edit_div {
+	display: none;
+}
+
+.sc_prog_edit_div {
+	display: none;
+} */
+
+.program_title {
+	text-decoration: underline;
+}
+
+.start_end_time_row {
+	margin-top: 15px !important;
+}

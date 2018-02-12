@@ -1,0 +1,55 @@
+.line_div {
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.font_c {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.0em;
+}
+
+.title {
+   /*  font-size: 1.2em; */
+}
+
+.invoice_al {
+    text-align: right;
+    font-weight: bold;
+}
+
+.school_info {
+    padding-left: 0 !important;
+}
+
+.email {}
+
+.parent_name {
+    font-weight: bold;
+}
+
+.table_css {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.footer_css {
+    text-align: center;
+}
+
+.invoice_label {
+    font-size: 2.8em;
+    font-family: 'Lato', sans-serif;
+    text-align: right;
+}
+
+.img_div{
+	position:absolute;
+	max-width : 75px;
+	max-height : 75px
+}
+
+.invoiceLogo{
+	width:90%;
+    max-height: 70px;
+}

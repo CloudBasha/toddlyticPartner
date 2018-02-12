@@ -1,0 +1,50 @@
+<!-- BEGIN MAIN CONTENT -->
+<div>
+	<div class="row margin-bottom-20">
+		<div class="col-sm-6 text-left">
+			<i class="fa fa-building-o contentIcon"></i>
+			<span class="contentTitle">Organization > Infant Program</span>
+		</div>
+		<div class="col-sm-6 text-right">
+			<i class="fa fa-plus-circle actionIcon" data-toggle="tooltip" data-placement="bottom"
+				title="Add Request" ng-click="openModal('createOrganizationModal')"></i>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12" ng-if="displayTable">
+			<table class="table table-hover member_act striped infoTitle" datatable="ng"
+			           dt-instance="dtInstance"
+			           dt-options="dtReportOptions"
+			           dt-column-defs="dtColumnDefs">
+     			<tbody>
+	      			<tr class="clickable-row" ng-repeat="organization in organizations">
+	        			<td>{{ organization.student }}</td>
+			            <td>{{ organization.invoiceNo}}</td>
+			            <td>{{ organization.billedAmnt }}</td>
+			            <td>{{ organization.billedDate }}</td>
+	        		</tr>
+         		</tbody>
+         	</table>
+			<!-- 
+			<table class="table table-hover member_act striped infoTitle" datatable="ng" 
+			           dt-options="dtReportOptions">
+	           	<thead>
+	           		<tr>
+	           			<th>Student</th>
+	           			<th>Invoice No.</th>
+	           			<th>Billed Amount</th>
+	           			<th>Billing Date</th>
+	           		</tr>
+	           	</thead>
+     			<tbody>
+	      			<tr class="clickable-row">
+	        			<td>Student A</td>
+			            <td>ABC-00001</td>
+			            <td>RM 100</td>
+			            <td>24-1-2017</td>
+	        		</tr>
+         		</tbody>
+         	</table> -->
+		</div>
+	</div>
+</div>
